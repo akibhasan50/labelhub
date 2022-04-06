@@ -1,0 +1,45 @@
+.login-title {
+  color: #3d5a80;
+  opacity: 1;
+  font-size: 28px;
+}
+.login-subtitle {
+  color: #343a40;
+  font-weight: 400;
+  font-size: 20px;
+}
+.custom-btn {
+  background-color: #3d5a80;
+  border: none;
+  color: white;
+}
+.forgot-pass {
+  color: #adb5bd;
+  align-items: center;
+  display: block;
+}
+.forgot-pass:hover {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.login-container {
+  border: 1px solid #6c757d;
+  border-radius: 5px;
+  padding: 30px;
+}
+.login-form {
+  height: 80vh;
+}
+.login-logos {
+  width: 70px;
+  height: 60px;
+  margin: 10px 20px;
+}
+.login-footer {
+  text-align: center;
+  color: #adb5bd;
+}
+.form-label {
+  color: #707070;
+  font-size: 14px;
+}
