@@ -9,14 +9,14 @@ import { useState } from "react";
 import { InputField } from "../../components/InputField/InputField";
 import { Image } from "../../components/Image/Image";
 import { CustomButton } from "../../components/Button/CustomButton";
-interface LoginFormProps {
-  type: string;
-  label: string;
-  placeholder: string;
-  value: string;
-}
+// interface LoginFormProps {
+//   type: string;
+//   label: string;
+//   placeholder: string;
+//   value: string;
+// }
 
-export const LoginForm: React.FC<LoginFormProps> = () => {
+export const LoginForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const handleSubmit = () => {

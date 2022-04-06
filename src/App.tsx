@@ -18,7 +18,7 @@ function App() {
       {/* <h1>{state.payload ? state.payload[0]?.name : 'Data not found'}</h1>
       <button onClick={() => fetchLogin()}>Deposit</button> */}
 
-      <LoginForm type={""} label={""} placeholder={""} value={""}></LoginForm>
+      <LoginForm></LoginForm>
     </div>
   );
 }
