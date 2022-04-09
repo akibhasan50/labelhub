@@ -8,13 +8,8 @@ import "./LoginForm.css";
 import { useState } from "react";
 import { InputField } from "../../components/InputField/InputField";
 import { Image } from "../../components/Image/Image";
-import { CustomButton } from "../../components/Button/CustomButton";
-// interface LoginFormProps {
-//   type: string;
-//   label: string;
-//   placeholder: string;
-//   value: string;
-// }
+import { CustomButton } from "./../../components/Button/CustomButton";
+import { Footer } from "../../components/Footer/Footer";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState<string>("");
@@ -89,11 +84,7 @@ export const LoginForm = () => {
         </Container>
       </section>
       <section>
-        <Container>
-          <div className="login-footer mt-3">
-            <span>2022. All rights reserved.</span>
-          </div>
-        </Container>
+        <Footer></Footer>
       </section>
     </>
   );

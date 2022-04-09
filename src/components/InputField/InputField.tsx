@@ -20,7 +20,7 @@ export const InputField: React.FC<InputFieldProps> = ({
 }) => {
   return (
     <>
-      <Form.Group controlId="formBasicEmail">
+      <Form.Group>
         <Form.Label className="form-label">{label} </Form.Label>
         <Form.Control
           value={value}

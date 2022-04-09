@@ -6,6 +6,7 @@ import { RootState } from "./state/reducers";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state";
 import { LoginForm } from "./containers/login/LoginForm";
+import { SignupForm } from "./containers/Signup/SignupForm";
 
 function App() {
   const state = useSelector((state: RootState) => state.user);
@@ -18,7 +19,8 @@ function App() {
       {/* <h1>{state.payload ? state.payload[0]?.name : 'Data not found'}</h1>
       <button onClick={() => fetchLogin()}>Deposit</button> */}
 
-      <LoginForm></LoginForm>
+      {/* <LoginForm></LoginForm> */}
+      <SignupForm></SignupForm>
     </div>
   );
 }
