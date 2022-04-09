@@ -7,6 +7,9 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "./state";
 import { LoginForm } from "./containers/login/LoginForm";
 import { SignupForm } from "./containers/Signup/SignupForm";
+import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   const state = useSelector((state: RootState) => state.user);
@@ -20,7 +23,14 @@ function App() {
       <button onClick={() => fetchLogin()}>Deposit</button> */}
 
       {/* <LoginForm></LoginForm> */}
-      <SignupForm></SignupForm>
+      {/* <SignupForm></SignupForm> */}
+      <Navbar></Navbar>
+      <div className="container-fluid" id="main">
+        <div className="row row-offcanvas row-offcanvas-left">
+          <Sidebar></Sidebar>
+          <Dashboard></Dashboard>
+        </div>
+      </div>
     </div>
   );
 }
