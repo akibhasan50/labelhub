@@ -4,6 +4,7 @@ interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children?: React.ReactNode;
   className?: string;
+  disabled?: boolean;
   type?: "submit" | "reset" | "button";
 }
 
@@ -12,9 +13,15 @@ export const CustomButton: React.FC<ButtonProps> = ({
   type,
   className,
   onClick,
+  disabled,
 }) => {
   return (
-    <button className={className} type={type} onClick={onClick}>
+    <button
+      className={className}
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

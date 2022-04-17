@@ -9,6 +9,7 @@ import { InputField } from "../../components/InputField/InputField";
 import { SelectField } from "../../components/SelectField/SelectField";
 import { CustomButton } from "./../../components/Button/CustomButton";
 import "./SignupForm.css";
+import { Link } from "react-router-dom";
 interface SignupFormProps {}
 
 export const SignupForm: React.FC<SignupFormProps> = ({}) => {
@@ -114,9 +115,9 @@ export const SignupForm: React.FC<SignupFormProps> = ({}) => {
                 <div className="text-center">
                   <span>
                     Already Have an Account?{" "}
-                    <a className="signin-link" href="#">
+                    <Link className="signin-link" to="/login">
                       Sign In
-                    </a>
+                    </Link>
                   </span>
                 </div>
               </Form>

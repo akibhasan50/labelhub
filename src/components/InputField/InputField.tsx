@@ -7,7 +7,10 @@ interface InputFieldProps {
   placeholder: string;
   value: string;
   required?: boolean;
+
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (e: any) => void;
+  onBlur?: (e: any) => void;
 }
 
 export const InputField: React.FC<InputFieldProps> = ({
@@ -17,6 +20,8 @@ export const InputField: React.FC<InputFieldProps> = ({
   placeholder,
   required,
   onChange,
+  onFocus,
+  onBlur,
 }) => {
   return (
     <>
@@ -28,6 +33,8 @@ export const InputField: React.FC<InputFieldProps> = ({
           placeholder={placeholder}
           required={required}
           onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </Form.Group>
     </>

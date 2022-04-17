@@ -42,3 +42,11 @@
   color: #707070;
   font-size: 14px;
 }
+.custom-btn {
+  background-color: #3d5a80;
+  border: none;
+  color: white;
+}
+.custom-btn:hover {
+  color: white;
+}
