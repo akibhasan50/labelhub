@@ -1,16 +1,19 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-interface InputFieldProps {
-  type: string;
-  label: string;
-  placeholder: string;
-  value: string;
+export interface InputFieldProps {
+  type: "text" | "email" | "password" | "number" | "date" | any;
+  label?: string;
+  placeholder?: string;
+  value: any;
+  name?: string;
   required?: boolean;
-
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+  className?: string;
+  id?: any;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const InputField: React.FC<InputFieldProps> = ({
@@ -20,21 +23,30 @@ export const InputField: React.FC<InputFieldProps> = ({
   placeholder,
   required,
   onChange,
+  name,
   onFocus,
   onBlur,
+  className,
+  disabled,
 }) => {
   return (
     <>
       <Form.Group>
-        <Form.Label className="form-label">{label} </Form.Label>
+        <Form.Label htmlFor={name} className="form-label">
+          {label}{" "}
+        </Form.Label>
+        {required && <span className="text-danger">*</span>}
         <Form.Control
           value={value}
+          name={name}
           type={type}
           placeholder={placeholder}
-          required={required}
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
+          disabled={disabled}
+          id={name}
+          className={className}
         />
       </Form.Group>
     </>

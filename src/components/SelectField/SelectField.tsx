@@ -3,12 +3,14 @@ import { Form } from "react-bootstrap";
 
 interface SelectFieldProps {
   options: any;
-  label: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  label?: string;
+  value: string | number;
+  onChange: any;
+  name: string;
+  className?: string;
 }
-interface IGender {
-  value: string;
+interface ISelect {
+  value: string | number;
   label: string;
 }
 export const SelectField: React.FC<SelectFieldProps> = ({
@@ -16,19 +18,24 @@ export const SelectField: React.FC<SelectFieldProps> = ({
   options,
   value,
   onChange,
+  name,
+  className,
 }) => {
+ 
   return (
     <>
       <Form.Group>
         <Form.Label className="form-label">{label} </Form.Label>
         <Form.Select
-          className="form-control"
-          aria-label="Default select example"
+          aria-label={name}
           onChange={onChange}
+          value={value}
+          name={name}
+          className={`form-control custom-select-style`}
         >
-          {options.map((item: IGender, index: number) => {
+          {options.map((item: ISelect, index: number) => {
             return (
-              <option key={index} value={item.value}>
+              <option key={index} value={item.value} className="select-option">
                 {item.label}
               </option>
             );

@@ -1,68 +1,55 @@
-import React from "react";
+import "./Navbar.css";
+import { useEffect, useState } from "react";
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+import { FiLogOut } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../app/store";
+import propic from "../../assets/images/profile-picture.svg";
+import { currentUser, resetUser } from "../../features/user/userSlice";
+import Spinner from "./../Spinner/Spinner";
+import { logout, resetAuth } from "../../features/auth/authSlice";
+import { roleCheck } from "../../utils/userRoles";
 
-export const Navbar = () => {
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const { logedinUser, isLoading } = useSelector(
+    (state: RootState) => state.user
+  );
+  const [showLogout, setShowLogout] = useState(false);
+
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(resetAuth());
+    dispatch(resetUser());
+  };
+  if (isLoading) {
+    return <Spinner></Spinner>;
+  }
+
+
   return (
-    <nav className="navbar fixed-top navbar-expand-md bg-light mb-3">
-      <div className="flex-row d-flex">
-        <button
-          type="button"
-          className="navbar-toggler mr-2 "
-          data-toggle="offcanvas"
-          title="Toggle responsive left sidebar"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <a
-          className="navbar-brand"
-          href="#"
-          title="Free Bootstrap 4 Admin Template"
-        >
-          Label Hub
-        </a>
+    <div className="navbar-wrapper">
+      <div className="nav-center">
+        <div className="btn-container">
+          <div className="btn" onClick={() => setShowLogout(!showLogout)}>
+            <img src={propic} alt="profile pic" className="user-logo"></img>
+            <div className="username-role">
+              {logedinUser && <span>{logedinUser?.full_name}</span>}
+              <span className="user-role">{roleCheck(logedinUser?.role)}</span>
+            </div>
+            {showLogout ? <BsChevronUp /> : <BsChevronDown />}
+          </div>
+          <div className={showLogout ? "dropdown show-dropdown" : "dropdown"}>
+            <button type="button" className="dropdown-btn" onClick={onLogout}>
+              <FiLogOut></FiLogOut> logout
+            </button>
+          </div>
+        </div>
       </div>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#collapsingNavbar"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="navbar-collapse collapse" id="collapsingNavbar">
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <a className="nav-link" href="#myAlert" data-toggle="collapse">
-              Alert
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              className="nav-link"
-              href=""
-              data-target="#myModal"
-              data-toggle="modal"
-            >
-              About
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link waves-effect waves-light text-white">
-              <i className="fab fa-google-plus-g"></i>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link waves-effect waves-light text-white">
-              <i className="fas fa-envelope-open-text"></i>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link waves-effect waves-light text-white">
-              <i className="fas fa-align-justify"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    </div>
   );
 };
 export default Navbar;
