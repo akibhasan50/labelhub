@@ -15,7 +15,7 @@ import { ModalRole } from "../../enums/ModalEnums";
 interface IMOdalBox {
   show: boolean;
   setShow: any;
-  actionData: any;
+  actionData?: any;
   modalText: string;
   modalIcon?: any;
   modalColor?: string;
@@ -25,7 +25,9 @@ interface IMOdalBox {
     | ModalRole.ACTIVE_USER
     | ModalRole.DELETE_PROJECT
     | ModalRole.LOCK_UNLOCK_GROUP
-    | ModalRole.GROUP_DELETE;
+    | ModalRole.GROUP_DELETE
+    | ModalRole.NER_REJECT
+    | ModalRole.NULL_SUBMIT;
 }
 
 export const ModalBox: React.FC<IMOdalBox> = ({
@@ -56,6 +58,9 @@ export const ModalBox: React.FC<IMOdalBox> = ({
     if (role === ModalRole.LOCK_UNLOCK_GROUP) {
       dispatch(lockUnlockGroupofProject(actionData));
     }
+    if (role === ModalRole.NER_REJECT) {
+      //ner reject action will go here
+    }
     handleClose();
   };
 
@@ -72,19 +77,21 @@ export const ModalBox: React.FC<IMOdalBox> = ({
         <Modal.Body>
           <span className="main-text">{modalText} </span>
         </Modal.Body>
-        <Modal.Footer>
-          <ActionButton
-            onClick={handleDispatchEvent}
-            className="success-action-btn"
-          >
-            {" "}
-            Yes
-          </ActionButton>
-          <ActionButton onClick={handleClose} className="close-action-btn">
-            {" "}
-            No
-          </ActionButton>
-        </Modal.Footer>
+        {actionData && (
+          <Modal.Footer>
+            <ActionButton
+              onClick={handleDispatchEvent}
+              className="success-action-btn"
+            >
+              {" "}
+              Yes
+            </ActionButton>
+            <ActionButton onClick={handleClose} className="close-action-btn">
+              {" "}
+              No
+            </ActionButton>
+          </Modal.Footer>
+        )}
       </Modal>
     </>
   );

@@ -1,59 +1,34 @@
+
 .ner-group-header {
   display: flex;
   align-items: center;
   padding: 0;
 }
 .ner-heading-text {
-  font: size 32px;
-  color: #6c757d;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 24px;
+  color: #333333;
 }
-.ner-annotation-info {
-  color: #343a40;
-  font: size 14px;
-}
-.ner-header-status {
-  background: #e5e5e5;
-  border-radius: 5px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  height: 20px;
+.annotation-type-ner {
   font-weight: 400;
-}
-
-.ner-annotaion-types-section {
-  padding: 20px;
-  box-shadow: #0000000a 0px 2px 56px;
-  border-radius: 5px;
-}
-.ner-annotation-type-title {
-  color: #adb5bd;
   font-size: 14px;
-}
-.ner-text-annotation {
-  color: #6c757d;
-  font-size: 16px;
-  text-align: center;
-}
-.ner-annoation-badge {
-  background-color: #357cee;
-  color: #ffffff;
-  padding: 5px;
-  font-size: 10px;
+  line-height: 24px;
+  color: #828282;
 }
 
-.ner-annotation-category {
-  border: 1px solid #adb5bd57;
-  border-radius: 5px;
-  padding: 15px;
-  display: flex;
+.ner-header-status {
+  background: #f2994a;
+  color: white !important;
+  border-radius: 4px;
+  height: 28px;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 3px 10px;
 }
 
-.ner-category {
-  color: #6c757d;
-  font-size: 12px;
-}
 .ner-sub-category-badge-selected {
-  background-color: #357cee;
+  background-color: #5f6fc3 !important;
   color: #ffffff;
   padding: 5px 10px;
   font-size: 12px;
@@ -62,7 +37,7 @@
 }
 .ner-sub-category-badge {
   background: none !important;
-  border: 1px solid #adb5bd;
+  border: 1px solid #5f6fc3;
   color: #495057;
   padding: 5px 10px;
   font-size: 12px;
@@ -70,11 +45,6 @@
   cursor: pointer;
 }
 
-.ner-sub-category-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
 .ner-tag-toggle {
   justify-content: flex-end;
   color: #495057;
@@ -84,26 +54,54 @@
   justify-content: center;
 }
 .ner-submit-button {
-  background: #3d5a80;
+  background: #2f80ed;
   border-radius: 5px;
-  border: 1px solid #3d5a80ed;
+  border: 1px solid #2f80ed;
   color: #ffffff;
   padding: 8px 25px;
   font-size: 14px;
 }
 .ner-skip-button {
-  background: #e9ecef;
+  background: #e2b93b;
   border-radius: 5px;
-  border: 1px solid #e9ecef;
-  color: #495057;
+  border: 1px solid #e2b93b;
+  color: #ffffff;
   padding: 8px 25px;
   font-size: 14px;
 }
 .ner-reject-button {
-  background: #f24c4c;
+  background: #eb5757;
   border-radius: 5px;
-  border: 1px solid #f24c4c;
+  border: 1px solid #eb5757;
   color: #ffffff;
   padding: 8px 25px;
   font-size: 14px;
+}
+.ner-annotaion-text {
+  max-width: 700;
+  line-height: 1.5;
+  margin: auto;
+  font-size: 20px;
+  background: #ffffff;
+  color: #000000;
+  padding: 30px;
+  border-radius: 5px;
+}
+.ner-annotaion-text mark {
+  border: 2px solid #5f6fc3 !important;
+  background-color: transparent !important;
+  padding: 5px 5px !important;
+  border-radius: 4px;
+  margin: 0px 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.ner-annotaion-text mark > span {
+  color: #5f6fc3;
+}
+.ner-annotaion-text mark::after {
+  content: "X";
+  color: #eb5757;
+  margin: 0px 4px;
+  font-size: 16px;
 }
