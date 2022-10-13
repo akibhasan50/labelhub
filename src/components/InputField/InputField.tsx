@@ -10,6 +10,7 @@ export interface InputFieldProps {
   required?: boolean;
   disabled?: boolean;
   className?: string;
+  labelClass?: string
   id?: any;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
@@ -27,12 +28,13 @@ export const InputField: React.FC<InputFieldProps> = ({
   onFocus,
   onBlur,
   className,
+  labelClass,
   disabled,
 }) => {
   return (
     <>
       <Form.Group>
-        <Form.Label htmlFor={name} className="form-label">
+        <Form.Label htmlFor={name} className={`form-label ${labelClass}`}>
           {label}{" "}
         </Form.Label>
         {required && <span className="text-danger">*</span>}
