@@ -9,6 +9,9 @@
   color: #ffffff;
   font-weight: 600;
 }
+.profile-card{
+  background-color: #ffffff;
+}
 .profile-info {
   align-items: center;
 }
@@ -46,3 +49,83 @@
   background: #3d5a80;
   color: white;
 }
+
+.edit-profile-button{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-profile-button button{
+  height: 32px;
+  font-weight: bold;
+}
+
+.user-name-email{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-name-email h3{
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 24px;
+}
+
+.user-profile-picture img{
+  width: 90px;
+}
+
+.user-information div{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+}
+
+.user-information div span{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #999393;
+
+}
+.user-information div h5{
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000000;
+
+}
+
+.edit-gander-select select{
+  height: 40px;
+}
+.profile-inputs {
+  border: none !important;
+  background-color: #f3f3f3 !important;
+  padding: 20px 10px;
+}
+.profile-inputs:focus {
+  box-shadow: 0 0 0 0.1rem #000000;
+}
+.profile-select {
+  background-color: #f3f3f3 !important;
+  border: none !important;
+  cursor: pointer;
+}
+.profile-select:focus {
+  box-shadow: 0 0 0 0.1rem #000000;
+}
+.change-password-link{
+  position: absolute;
+  right: 23px;
+  top: 40px;
+  color: #27AE60 !important;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+}
+
